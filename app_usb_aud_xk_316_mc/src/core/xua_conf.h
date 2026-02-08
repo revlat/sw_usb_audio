@@ -1,5 +1,11 @@
 // Copyright 2012-2025 XMOS LIMITED.
 // This Software is subject to the terms of the XMOS Public Licence: Version 1.
+//
+// MODIFIED by revlat for AC-32 Acoustic Camera
+// Date: 2026-02-08
+// Changes: Changed PRODUCT_STR_A2 to "AC-32 Acoustic Camera"
+// Original: https://github.com/xmos/sw_usb_audio
+//
 /**
  * @file       xua_conf.h
  * @brief      Defines relating to device configuration and customisation.
@@ -156,8 +162,12 @@
 #endif
 #endif
 
-#define PRODUCT_STR_A2     "XMOS xCORE.ai MC (UAC2.0)"
-#define PRODUCT_STR_A1     "XMOS xCORE.ai MC (UAC1.0)"
+#ifndef PRODUCT_STR_A2
+#define PRODUCT_STR_A2     "AC-32 Acoustic Camera"
+#endif
+#ifndef PRODUCT_STR_A1
+#define PRODUCT_STR_A1     "AC-32 Acoustic Camera (UAC1.0)"
+#endif
 
 /* Board power source - Default is bus-powered */
 #ifndef XUA_POWERMODE

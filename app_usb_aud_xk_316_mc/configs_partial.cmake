@@ -1,6 +1,11 @@
 #
 # Configs that are partially tested
 #
+# MODIFIED by revlat for AC-32 Acoustic Camera
+# Date: 2026-02-08
+# Changes: Added 2AMi32o0xxxxxx_tdm8 config (32 input, 0 output, TDM8)
+# Original: https://github.com/xmos/sw_usb_audio
+#
 
 # Enabling "build" test configs implicitly enables "partial" test configs
 if(BUILD_TESTED_CONFIGS)
@@ -39,6 +44,15 @@ set(APP_COMPILER_FLAGS_2AMi32o32xxxxxx_tdm8 ${SW_USB_AUDIO_FLAGS} -DXUA_PCM_FORM
                                                                   -DNUM_USB_CHAN_IN=32
                                                                   -DI2S_CHANS_ADC=32
                                                                   -DMAX_FREQ=48000)
+
+# Audio Class 2, Async, I2S Master, 32xInput, 0xOutput, TDM (Acoustic Camera - revlat)
+set(APP_COMPILER_FLAGS_2AMi32o0xxxxxx_tdm8 ${SW_USB_AUDIO_FLAGS} -DXUA_PCM_FORMAT=XUA_PCM_FORMAT_TDM
+                                                                  -DNUM_USB_CHAN_OUT=0
+                                                                  -DI2S_CHANS_DAC=0
+                                                                  -DNUM_USB_CHAN_IN=32
+                                                                  -DI2S_CHANS_ADC=32
+                                                                  -DMAX_FREQ=48000
+                                                                  -DMIXER=0)
 
 # Audio Class 2, Async, I2S Master, 32xInput, 32xOutput, TDM, Mixer enabled
 set(APP_COMPILER_FLAGS_2AMi32o32xxxxxx_tdm8_mix8 ${SW_USB_AUDIO_FLAGS} -DXUA_PCM_FORMAT=XUA_PCM_FORMAT_TDM
